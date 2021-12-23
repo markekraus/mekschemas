@@ -40,10 +40,10 @@
   "properties": {
       "$schema": {
         "$id": "#/properties/Schema",
-          "default": "http://mekschemas.netlify.app/modpackager/v1/root.json",
+          "default": "http://mekschemas.netlify.app/modpackager/v1/",
           "description": "The JSON Schema",
           "examples": [
-              "http://mekschemas.netlify.app/modpackager/v1/root.json"
+              "http://mekschemas.netlify.app/modpackager/v1/"
           ],
           "title": "The Schema",
           "type": "string"
