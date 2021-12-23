@@ -4,237 +4,248 @@
   "default": {},
   "description": "The root schema comprises the entire JSON document.",
   "examples": [
-      {
-          "SkyrimSEInstallPath": "D:\\Steam\\steamapps\\common\\Skyrim Special Edition",
-          "UnfuzerPath": "D:\\Steam\\steamapps\\common\\Skyrim Special Edition\\Tools\\unfuzer",
-          "ModInfo": {
-              "Name": "Sentient Chairs of Skyrim (SCOS)",
-              "Version": "3.0.0",
-              "Author": "Mark E. Kraus",
-              "Description": "Adds a race of Sentient Chairs native to Skyrim.",
-              "Website": "https://www.nexusmods.com/skyrimspecialedition/mods/59604",
-              "Category": "NPC",
-              "Logo": "logo.png"
-          },
-          "Plugin": "MarkekrausSentientChairsOfSkyrim.esp",
-          "Scripts": [
-              "MEKSCOSNoteTriggerQuest"
-          ],
-          "Meshes": [
-              "actors\\chair\\character assets\\chairhorseskeleton.nif"
-          ],
-          "PackageName": "MarkekrausSentientChairsOfSkyrimSE.7z"
-      }
+    {
+      "SkyrimSEInstallPath": "D:\\Steam\\steamapps\\common\\Skyrim Special Edition",
+      "UnfuzerPath": "D:\\Steam\\steamapps\\common\\Skyrim Special Edition\\Tools\\unfuzer",
+      "ModInfo": {
+        "Name": "Sentient Chairs of Skyrim (SCOS)",
+        "Version": "3.0.0",
+        "Author": "Mark E. Kraus",
+        "Description": "Adds a race of Sentient Chairs native to Skyrim.",
+        "Website": "https://www.nexusmods.com/skyrimspecialedition/mods/59604",
+        "Category": "NPC",
+        "Logo": "logo.png"
+      },
+      "Plugin": "MarkekrausSentientChairsOfSkyrim.esp",
+      "Scripts": [
+        "MEKSCOSNoteTriggerQuest",
+        "MEKSCOSMESetChairOutfitScript"
+      ],
+      "Meshes": [
+        "actors\\chair\\character assets\\chairhorseskeleton.nif"
+      ],
+      "PackageName": "MarkekrausSentientChairsOfSkyrimSE.7z"
+    }
   ],
   "required": [
-      "SkyrimSEInstallPath",
-      "UnfuzerPath",
-      "ModInfo",
-      "Plugin",
-      "Scripts",
-      "Meshes",
-      "PackageName"
+    "SkyrimSEInstallPath",
+    "UnfuzerPath",
+    "ModInfo",
+    "Plugin",
+    "Scripts",
+    "Meshes",
+    "PackageName"
   ],
   "title": "Skyrim SE Mod Packager",
   "type": "object",
   "properties": {
-      "$schema": {
-        "$id": "#/properties/Schema",
-          "default": "http://mekschemas.netlify.app/modpackager/v1/",
-          "description": "The JSON Schema",
-          "examples": [
-              "http://mekschemas.netlify.app/modpackager/v1/"
-          ],
-          "title": "The Schema",
-          "type": "string"
-      },
-      "SkyrimSEInstallPath": {
-          "$id": "#/properties/SkyrimSEInstallPath",
+    "$schema": {
+      "$id": "#/properties/Schema",
+      "default": "http://mekschemas.netlify.app/modpackager/v1/",
+      "description": "The JSON Schema",
+      "examples": [
+        "http://mekschemas.netlify.app/modpackager/v1/"
+      ],
+      "title": "The Schema",
+      "type": "string"
+    },
+    "SkyrimSEInstallPath": {
+      "$id": "#/properties/SkyrimSEInstallPath",
+      "default": "",
+      "description": "Install Location of Skyrim SE",
+      "examples": [
+        "D:\\Steam\\steamapps\\common\\Skyrim Special Edition"
+      ],
+      "title": "The SkyrimSEInstallPath schema",
+      "type": "string",
+      "minLength": 1
+    },
+    "UnfuzerPath": {
+      "$id": "#/properties/UnfuzerPath",
+      "default": "",
+      "description": "Install folder for unfuzer https://www.nexusmods.com/skyrim/mods/9797/?tab=files",
+      "examples": [
+        "D:\\Steam\\steamapps\\common\\Skyrim Special Edition\\Tools\\unfuzer"
+      ],
+      "title": "The UnfuzerPath schema",
+      "type": "string",
+      "minLength": 1
+    },
+    "ModInfo": {
+      "$id": "#/properties/ModInfo",
+      "default": {},
+      "description": "Info about the mod",
+      "required": [
+        "Name",
+        "Version",
+        "Author",
+        "Description",
+        "Website",
+        "Category",
+        "Logo"
+      ],
+      "title": "The ModInfo schema",
+      "type": "object",
+      "properties": {
+        "Name": {
+          "$id": "#/properties/ModInfo/properties/Name",
           "default": "",
-          "description": "Install Location of Skyrim SE",
+          "description": "The Name of the mod.",
           "examples": [
-              "D:\\Steam\\steamapps\\common\\Skyrim Special Edition"
+            "Sentient Chairs of Skyrim (SCOS)"
           ],
-          "title": "The SkyrimSEInstallPath schema",
-          "type": "string"
-      },
-      "UnfuzerPath": {
-          "$id": "#/properties/UnfuzerPath",
+          "title": "Mod Info Name",
+          "type": "string",
+          "minLength": 1
+        },
+        "Version": {
+          "$id": "#/properties/ModInfo/properties/Version",
           "default": "",
-          "description": "Install folder for unfuzzer https://www.nexusmods.com/skyrim/mods/9797/?tab=files",
+          "description": "The version of the mod.",
           "examples": [
-              "D:\\Steam\\steamapps\\common\\Skyrim Special Edition\\Tools\\unfuzer"
+            "3.0.0"
           ],
-          "title": "The UnfuzerPath schema",
-          "type": "string"
-      },
-      "ModInfo": {
-          "$id": "#/properties/ModInfo",
-          "default": {},
-          "description": "Info about the mod",
-          "required": [
-              "Name",
-              "Version",
-              "Author",
-              "Description",
-              "Website",
-              "Category",
-              "Logo"
-          ],
-          "title": "The ModInfo schema",
-          "type": "object",
-          "properties": {
-              "Name": {
-                  "$id": "#/properties/ModInfo/properties/Name",
-                  "default": "",
-                  "description": "The Name of the mod.",
-                  "examples": [
-                      "Sentient Chairs of Skyrim (SCOS)"
-                  ],
-                  "title": "Mod Info Name",
-                  "type": "string"
-              },
-              "Version": {
-                  "$id": "#/properties/ModInfo/properties/Version",
-                  "default": "",
-                  "description": "The version of the mod.",
-                  "examples": [
-                      "3.0.0"
-                  ],
-                  "title": "Mod Info Version",
-                  "type": "string"
-              },
-              "Author": {
-                  "$id": "#/properties/ModInfo/properties/Author",
-                  "default": "",
-                  "description": "The name of the mod author or group.",
-                  "examples": [
-                      "Mark E. Kraus"
-                  ],
-                  "title": "Mod Info Author",
-                  "type": "string"
-              },
-              "Description": {
-                  "$id": "#/properties/ModInfo/properties/Description",
-                  "default": "",
-                  "description": "Brief descirption of the mod.",
-                  "examples": [
-                      "Adds a race of Sentient Chairs native to Skyrim."
-                  ],
-                  "title": "Mod Info Description",
-                  "type": "string"
-              },
-              "Website": {
-                  "$id": "#/properties/ModInfo/properties/Website",
-                  "default": "",
-                  "description": "The URL of the mod's website of Nexus mod page",
-                  "examples": [
-                      "https://www.nexusmods.com/skyrimspecialedition/mods/59604"
-                  ],
-                  "title": "Mod Info Website",
-                  "type": "string"
-              },
-              "Category": {
-                  "$id": "#/properties/ModInfo/properties/Category",
-                  "default": "",
-                  "description": "A category this mod belongs to.",
-                  "examples": [
-                      "NPC"
-                  ],
-                  "title": "Mod Info Category",
-                  "type": "string"
-              },
-              "Logo": {
-                  "$id": "#/properties/ModInfo/properties/Logo",
-                  "default": "Relative path to the logo image for the mod.",
-                  "description": "An explanation about the purpose of this instance.",
-                  "examples": [
-                      "logo.png"
-                  ],
-                  "title": "Mod Info Logo",
-                  "type": "string"
-              }
-          },
-          "additionalProperties": true
-      },
-      "Plugin": {
-          "$id": "#/properties/Plugin",
+          "title": "Mod Info Version",
+          "type": "string",
+          "minLength": 1
+        },
+        "Author": {
+          "$id": "#/properties/ModInfo/properties/Author",
           "default": "",
-          "description": "The main plugin file for the mod.",
+          "description": "The name of the mod author or group.",
           "examples": [
-              "MarkekrausSentientChairsOfSkyrim.esp"
+            "Mark E. Kraus"
           ],
-          "title": "The Plugin schema",
+          "title": "Mod Info Author",
+          "type": "string",
+          "minLength": 1
+        },
+        "Description": {
+          "$id": "#/properties/ModInfo/properties/Description",
+          "default": "",
+          "description": "Brief description of the mod.",
+          "examples": [
+            "Adds a race of Sentient Chairs native to Skyrim."
+          ],
+          "title": "Mod Info Description",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "Website": {
+          "$id": "#/properties/ModInfo/properties/Website",
+          "default": "",
+          "description": "The URL of the mod's website of Nexus mod page",
+          "examples": [
+            "https://www.nexusmods.com/skyrimspecialedition/mods/59604"
+          ],
+          "title": "Mod Info Website",
           "type": "string"
-      },
-      "Scripts": {
-          "$id": "#/properties/Scripts",
-          "default": [],
-          "description": "Array of scripts this mod uses.",
+        },
+        "Category": {
+          "$id": "#/properties/ModInfo/properties/Category",
+          "default": "",
+          "description": "A category this mod belongs to.",
           "examples": [
-              [
-                  "MEKSCOSNoteTriggerQuest",
-                  "QF_MEKSCOSQuestSentientChair_06000A14"
-              ]
+            "NPC"
           ],
-          "title": "The Scripts schema",
-          "type": "array",
-          "additionalItems": true,
-          "items": {
-              "$id": "#/properties/Scripts/items",
-              "anyOf": [
-                  {
-                      "$id": "#/properties/Scripts/items/anyOf/0",
-                      "default": "",
-                      "description": "Script used by the mod.",
-                      "examples": [
-                          "MEKSCOSNoteTriggerQuest",
-                          "QF_MEKSCOSQuestSentientChair_06000A14"
-                      ],
-                      "title": "Script Item",
-                      "type": "string"
-                  }
-              ]
+          "title": "Mod Info Category",
+          "type": "string"
+        },
+        "Logo": {
+          "$id": "#/properties/ModInfo/properties/Logo",
+          "default": "Relative path to the logo image for the mod.",
+          "description": "An explanation about the purpose of this instance.",
+          "examples": [
+            "logo.png"
+          ],
+          "title": "Mod Info Logo",
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "Plugin": {
+      "$id": "#/properties/Plugin",
+      "default": "",
+      "description": "The main plugin file for the mod.",
+      "examples": [
+        "MarkekrausSentientChairsOfSkyrim.esp"
+      ],
+      "title": "The Plugin schema",
+      "type": "string"
+    },
+    "Scripts": {
+      "$id": "#/properties/Scripts",
+      "default": [],
+      "description": "Array of scripts this mod uses. Script names only without file extensions.",
+      "examples": [
+        [
+          "MEKSCOSNoteTriggerQuest",
+          "MEKSCOSMESetChairOutfitScript"
+        ]
+      ],
+      "title": "The Scripts schema",
+      "type": "array",
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/Scripts/items",
+        "anyOf": [
+          {
+            "$id": "#/properties/Scripts/items/anyOf/0",
+            "default": "",
+            "description": "Script used by the mod. Script name only without file extension.",
+            "examples": [
+              "MEKSCOSNoteTriggerQuest",
+              "QF_MEKSCOSQuestSentientChair_06000A14"
+            ],
+            "title": "Script Item",
+            "type": "string",
+            "minLength": 1
           }
-      },
-      "Meshes": {
-          "$id": "#/properties/Meshes",
-          "default": [],
-          "description": "Array of meshes used by the mod. Paths are relatinve to {SkyrimSEInstallPath}\\Data\\Mahes\\",
-          "examples": [
-              [
-                  "actors\\chair\\character assets\\chairhorseskeleton.nif"
-              ]
-          ],
-          "title": "The Meshes schema",
-          "type": "array",
-          "additionalItems": true,
-          "items": {
-              "$id": "#/properties/Meshes/items",
-              "anyOf": [
-                  {
-                      "$id": "#/properties/Meshes/items/anyOf/0",
-                      "default": "",
-                      "description": "Mesh used by the mod. Paths are relatinve to {SkyrimSEInstallPath}\\Data\\Mahes\\",
-                      "examples": [
-                          "actors\\chair\\character assets\\chairhorseskeleton.nif"
-                      ],
-                      "title": "The first anyOf schema",
-                      "type": "string"
-                  }
-              ]
-          }
-      },
-      "PackageName": {
-          "$id": "#/properties/PackageName",
-          "default": "",
-          "description": "Name of the 7z file ythe mod will be packaged into.",
-          "examples": [
-              "MarkekrausSentientChairsOfSkyrimSE.7z"
-          ],
-          "title": "The PackageName schema",
-          "type": "string"
+        ]
       }
+    },
+    "Meshes": {
+      "$id": "#/properties/Meshes",
+      "default": [],
+      "description": "Array of meshes used by the mod. Paths are relative to {SkyrimSEInstallPath}\\Data\\Meshes\\",
+      "examples": [
+        [
+          "actors\\chair\\character assets\\chairhorseskeleton.nif"
+        ]
+      ],
+      "title": "The Meshes schema",
+      "type": "array",
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/Meshes/items",
+        "anyOf": [
+          {
+            "$id": "#/properties/Meshes/items/anyOf/0",
+            "default": "",
+            "description": "Mesh used by the mod. Paths are relative to {SkyrimSEInstallPath}\\Data\\Meshes\\",
+            "examples": [
+              "actors\\chair\\character assets\\chairhorseskeleton.nif"
+            ],
+            "title": "The first anyOf schema",
+            "type": "string",
+            "minLength": 1
+          }
+        ]
+      }
+    },
+    "PackageName": {
+      "$id": "#/properties/PackageName",
+      "default": "",
+      "description": "Name of the 7z file the mod will be packaged into.",
+      "examples": [
+        "MarkekrausSentientChairsOfSkyrimSE.7z"
+      ],
+      "title": "The PackageName schema",
+      "type": "string",
+      "minLength": 1
+    }
   },
   "additionalProperties": true
 }
