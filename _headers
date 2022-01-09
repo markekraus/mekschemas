@@ -2,3 +2,7 @@
   Content-Type: application/json
 /modpackager/v1/root.json
   Content-Type: application/json
+/modpackager/v2/
+  Content-Type: application/json
+/modpackager/v2/root.json
+  Content-Type: application/json
