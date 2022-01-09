@@ -19,7 +19,6 @@
     }
   ],
   "required": [
-    "SkyrimSEInstallPath",
     "UnfuzerPath",
     "ModInfo",
     "Plugin"
@@ -36,17 +35,6 @@
       ],
       "title": "The Schema",
       "type": "string"
-    },
-    "SkyrimSEInstallPath": {
-      "$id": "#/properties/SkyrimSEInstallPath",
-      "default": "",
-      "description": "Install Location of Skyrim SE",
-      "examples": [
-        "D:\\Steam\\steamapps\\common\\Skyrim Special Edition"
-      ],
-      "title": "The SkyrimSEInstallPath schema",
-      "type": "string",
-      "minLength": 1
     },
     "UnfuzerPath": {
       "$id": "#/properties/UnfuzerPath",
